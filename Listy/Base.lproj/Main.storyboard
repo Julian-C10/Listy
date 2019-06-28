@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="5HG-o0-cLc" id="PDC-8N-vZF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Listy" id="e9L-nI-fl0"/>
+                    <navigationItem key="navigationItem" title="Listy" id="e9L-nI-fl0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="veZ-ru-GKt">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="5HG-o0-cLc" id="2ve-2k-EZY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwr-Xa-CIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
