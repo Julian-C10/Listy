@@ -10,6 +10,45 @@
     </dependencies>
     <scenes>
         <!--Listy-->
+        <scene sceneID="oxE-HB-299">
+            <objects>
+                <tableViewController id="FIh-RK-EAd" customClass="CategoryViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CFq-vD-kmL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="1wi-Fc-1bS">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1wi-Fc-1bS" id="B9g-Ee-WWx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FIh-RK-EAd" id="cyN-WC-QSJ"/>
+                            <outlet property="delegate" destination="FIh-RK-EAd" id="HTh-gU-UPq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Listy" id="m2X-aM-wbF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="t9Z-k4-mIZ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="FIh-RK-EAd" id="1D3-og-pGN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="5HG-o0-cLc" kind="show" identifier="goToItems" id="IVq-X8-1yu"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tv-PA-T5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1651" y="77"/>
+        </scene>
+        <!--Items-->
         <scene sceneID="6ZR-1u-2aK">
             <objects>
                 <tableViewController id="5HG-o0-cLc" customClass="ToDoListViewController" customModule="Listy" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,9 +56,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="gVw-4u-Vqz">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="5HG-o0-cLc" id="jZA-xO-oi3"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="v1T-Kz-0Nr">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v1T-Kz-0Nr" id="d3D-Qh-aYJ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -32,7 +79,7 @@
                             <outlet property="delegate" destination="5HG-o0-cLc" id="PDC-8N-vZF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Listy" id="e9L-nI-fl0">
+                    <navigationItem key="navigationItem" title="Items" id="e9L-nI-fl0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="veZ-ru-GKt">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
@@ -43,7 +90,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwr-Xa-CIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652.1739130434785" y="80.357142857142847"/>
+            <point key="canvasLocation" x="2442" y="76"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GLR-SO-vMp">
@@ -57,12 +104,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5HG-o0-cLc" kind="relationship" relationship="rootViewController" id="w16-CV-NHX"/>
+                        <segue destination="FIh-RK-EAd" kind="relationship" relationship="rootViewController" id="8Kb-0f-Hwf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkX-k7-S3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742.02898550724649" y="80.357142857142847"/>
+            <point key="canvasLocation" x="830" y="76"/>
         </scene>
     </scenes>
 </document>
